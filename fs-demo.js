@@ -5,16 +5,41 @@
  */
 const fs = require('fs');
 
+stat();
+
 /**
  * 异步删除文件
  */
-fs.unlink('.\\fs-demo-test.txt', (err) => {
-    if (err) throw err;
-    console.log('err', err);
-    console.log('msg', 'successfully deleted file');
-});
+function unlink() {
+    fs.unlink('.\\fs-demo-test.txt', (err) => {
+        if (err) throw err;
+        console.log('successfully deleted file');
+    });
+}
 
 /**
- * 同步删除文件(当出现任何异常时都会)
+ * 同步删除文件(当出现任何异常时都会立即抛出)
  */
-fs.unlinkSync('.\\fs-demo-test.txt');
+function unlinkSync() {
+    fs.unlinkSync('.\\fs-demo-test.txt');
+}
+
+/**
+ * 重命名文件
+ */
+function rename() {
+    fs.rename('.\\fs-demo-test.txt', '.\\fs-demo.txt', (err) => {
+        if (err) throw err;
+        console.log('successfully rename file');
+    })
+}
+
+/**
+ * 读取文件属性
+ */
+function stat() {
+    fs.stat('.\\fs-demo-test.txt', (err, status) => {
+        if (err) throw err;
+        console.log(`file options: ${JSON.stringify(status)}`);
+    })
+}

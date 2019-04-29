@@ -11,7 +11,7 @@ stat();
  * 异步删除文件
  */
 function unlink() {
-    fs.unlink('.\\fs-demo-test.txt', (err) => {
+    fs.unlink('.\\demo-fs.txt', (err) => {
         if (err) throw err;
         console.log('successfully deleted file');
     });
@@ -21,14 +21,14 @@ function unlink() {
  * 同步删除文件(当出现任何异常时都会立即抛出)
  */
 function unlinkSync() {
-    fs.unlinkSync('.\\fs-demo-test.txt');
+    fs.unlinkSync('.\\demo-fs.txt.txt');
 }
 
 /**
  * 重命名文件
  */
 function rename() {
-    fs.rename('.\\fs-demo-test.txt', '.\\fs-demo.txt', (err) => {
+    fs.rename('.\\demo-fs.txt', '.\\fs-demo.txt', (err) => {
         if (err) throw err;
         console.log('successfully rename file');
     })
@@ -38,7 +38,7 @@ function rename() {
  * 读取文件属性
  */
 function stat() {
-    fs.stat('.\\fs-demo-test.txt', (err, status) => {
+    fs.stat('.\\demo-fs.txt', (err, status) => {
         if (err) throw err;
         console.log(`file options: ${JSON.stringify(status)}`);
     })

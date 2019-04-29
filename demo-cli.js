@@ -1,2 +1,2 @@
 const [nodePath, scriptPath, name] = process.argv;
-console.log(`hello ${name}`)
+console.log(`hello ${name}`);
